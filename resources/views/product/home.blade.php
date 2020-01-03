@@ -14,6 +14,7 @@
                                             <th>#</th>
                                             <th>Image</th>
                                             <th>Product Name</th>
+                                            <th>Product Category</th>
                                             <th>Brand Name</th>
                                             <th>Price</th>
                                             <th>Discount (%)</th>
@@ -28,6 +29,7 @@
                                             <td>{{$i++}}</td>
                                             <td><img src="{{URL::asset('/productImages/'.$product->product_image)}}" alt=""></td>
                                             <td>{{ ucfirst($product->product_name) }}</td>
+                                            <td>{{ ucfirst($product->category_name['category_name']) }}</td>
                                             <td>{{ ucfirst($product->product_brand_name) }}</td>
                                             <td>{{ $product->product_price }}</td>
                                             <td>{{ $product->product_discount }}</td>

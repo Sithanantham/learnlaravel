@@ -13,8 +13,23 @@
                                 @csrf
                             <div class="form-group row">
                                 <label for="product_name" class="col-sm-2 col-form-label">Product Name</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-4">
                                     <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Product Name" value="{{$edit_products->product_name}}" required>
+                                </div>
+                                <label for="product_name" class="col-sm-2 col-form-label">Product Category</label>
+                                <div class="col-sm-4">
+                                <select name="category_id" id="category_id" class="form-control" required>
+                                <option value="{{($edit_products->category_id)}}">
+                                    @foreach($category as $categorys)
+                                        @if($categorys->id == $edit_products->category_id)
+                                                {{$categorys->category_name}}
+                                        @endif
+                                    @endforeach
+                                </option>
+                                    @foreach($category as $categorys)
+                                        <option value="{{($categorys->id)}}">{{$categorys->category_name}}</option>
+                                    @endforeach
+                                </select>
                                 </div>
                             </div>
 
@@ -26,18 +41,15 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="product_price" class="col-sm-2 col-form-label">Price</label>
-                                <div class="col-sm-10">
+                            <label for="product_price" class="col-sm-2 col-form-label">Price</label>
+                                <div class="col-sm-3">
                                     <input type="number" name="product_price" class="form-control" id="product_price" placeholder="Product Price" value="{{$edit_products->product_price}}" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="product_discount" class="col-sm-2 col-form-label">Discount (%)</label>
-                                <div class="col-sm-5">
+                                <label for="product_discount" class="col-sm-1 col-form-label">Discount (%)</label>
+                                <div class="col-sm-3">
                                     <input type="text" name="product_discount" class="form-control" id="product_discount" placeholder="Product Discount in %" value="{{$edit_products->product_discount}}" maxlength="2" required>
                                 </div>
-                                <div class="col-sm-5">
+                                <div class="col-sm-3">
                                     <input type="number" name="product_discount_price" class="form-control" id="product_discount_price" placeholder="Product Discount Price" value="{{$edit_products->product_discount_price}}" readonly>
                                 </div>
                             </div>

@@ -85,6 +85,7 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="/admin/add-product" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-plus-network menu-icon"></i>
@@ -96,6 +97,13 @@
             <a class="nav-link" data-toggle="collapse" href="/admin/view-product" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-view-list menu-icon"></i>
               <span class="menu-title">Products List</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="/admin/add-category" aria-expanded="false" aria-controls="ui-basic">
+              <i class="mdi mdi-plus-network menu-icon"></i>
+              <span class="menu-title">Add Category</span>
             </a>
           </li>
 

@@ -13,8 +13,17 @@
                                 @csrf
                             <div class="form-group row">
                                 <label for="product_name" class="col-sm-2 col-form-label">Product Name</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-4">
                                     <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Product Name" required>
+                                </div>
+                                <label for="product_name" class="col-sm-2 col-form-label">Product Category</label>
+                                <div class="col-sm-4">
+                                <select name="category_id" id="category_id" class="form-control" required>
+                                    <option disabled selected>Select Category</option>
+                                    @foreach($category as $categorys)
+                                        <option value="{{$categorys->id}}">{{$categorys->category_name}}</option>
+                                    @endforeach
+                                </select>
                                 </div>
                             </div>
 
@@ -26,18 +35,15 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="product_price" class="col-sm-2 col-form-label">Price</label>
-                                <div class="col-sm-10">
+                                 <label for="product_price" class="col-sm-2 col-form-label">Price</label>
+                                <div class="col-sm-3">
                                     <input type="number" name="product_price" class="form-control percentage" id="product_price" placeholder="Product Price" required>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="product_discount" class="col-sm-2 col-form-label">Discount (%)</label>
-                                <div class="col-sm-5">
+                                <label for="product_discount" class="col-sm-1 col-form-label">Discount (%)</label>
+                                <div class="col-sm-3">
                                     <input type="text" name="product_discount" class="form-control percentage" id="product_discount" placeholder="Product Discount in %" value="0" maxlength="2" required>
                                 </div>
-                                <div class="col-sm-5">
+                                <div class="col-sm-3">
                                     <input type="number" name="product_discount_price" class="form-control percentage" id="product_discount_price" placeholder="Product Discount Price" readonly>
                                 </div>
                             </div>

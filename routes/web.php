@@ -38,6 +38,14 @@ Route::post('/admin/{id}/update-product', 'ProductController@updateProduct');
 Route::delete('/admin/{id}/delete-product', 'ProductController@deleteProduct');
 
 
+//Category
+Route::get('/admin/add-category', 'ProductController@addCategory');
+Route::post('/admin/save-category', 'ProductController@saveCategory');
+Route::get('/admin/{id}/edit-category', 'ProductController@editCategory');
+Route::post('/admin/{id}/update-category', 'ProductController@updateCategory');
+Route::delete('/admin/{id}/delete-category', 'ProductController@deleteCategory');
+
+
 //Admin
 Route::get('/admin/add-admin', 'ProductController@addAdmin');
 Route::get('/admin/view-admins', 'ProductController@viewAdmins');
