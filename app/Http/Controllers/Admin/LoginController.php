@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/admin/product';
 
     /**
      * Create a new controller instance.
@@ -34,19 +34,28 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
     }
 
-    public function validator(Request $request){
+    public function showLoginForm(){
+        return view('admin.login');
+    }
+
+    public function login(Request $request){
         $this->validate($request,[
             'email'    => 'required|string',
             'password' => 'required|string',
             'captcha'  => 'required|string',
         ]);
+        if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            dd(auth()->guard('admin')->user());
+
+        }
+        return back()->withErrors(['email' => 'Email or password are wrong.']);
     }
 
     public function refreshCaptcha(){
         return response()->json(['captcha' => 'captcha_img()']);
     }
-
 }

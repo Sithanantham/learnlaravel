@@ -53,4 +53,25 @@ Route::get('/admin/view-admins', 'ProductController@viewAdmins');
 
 Auth::routes();
 
-Route::get('/admin', 'ProductController@product');
+Route::get('/', 'HomeController@index');
+
+Route::get('/admin/product', 'ProductController@product');
+
+Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Admin\LoginController@login');
+Route::get('/admin/register', 'Admin\RegisterController@showRegisterForm')->name('showadmin.register');
+Route::post('/save-admin/register', 'Admin\RegisterController@createRegister')->name('admin.register');
+Route::post('/admin-password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::post('/admin-password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+
+
+//refresh captcha
+Route::get('/refreshcaptcha', 'Auth\LoginController@refreshCaptcha');
+/*
+Route::get('/login', 'AgentAuth\LoginController@showLoginForm')->name('login');
+  Route::post('/login', 'AgentAuth\LoginController@login');
+  Route::post('/logout', 'AgentAuth\LoginController@logout')->name('logout');
+
+  Route::get('/register', 'AgentAuth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('/register', 'AgentAuth\RegisterController@register');
+ */

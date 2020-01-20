@@ -96,6 +96,12 @@
             <li><a href="#">Full Story Books</a></li>
             <li><a href="#">Your Account</a></li>
             <li><a href="#">Customer Service</a></li>
+           <!--  <li> <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="mdi mdi-lock menu-icon" aria-hidden="true"></i> <span class="menu-title">Logout</span></a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form></li> -->
         </ul>
       </nav>
         <div class="main-panel">

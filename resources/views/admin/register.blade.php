@@ -1,14 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Admin Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('admin.register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -61,29 +61,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right"></label>
-
-                            <div class="col-md-6">
-                               <span>{!! captcha_img('flat') !!}</span>
-                                <button type="button" class="btn btn-success"><i class="fa fa-refresh" id="refresh"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('Enter Captcha') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="captcha" type="text" class="form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}" name="captcha" required>
-
-                                @if ($errors->has('captcha'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('captcha') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -97,16 +74,4 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-$('#refresh').click(function(){
-  $.ajax({
-     type:'GET',
-     url:'refreshcaptcha',
-     success:function(data){
-        $(".captcha span").html(data.captcha);
-     }
-  });
-});
-</script>
 @endsection

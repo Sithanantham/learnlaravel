@@ -3,10 +3,30 @@
 @section('content')
 
         <div class="row items" id="myContent body">
-            <div class="col-md-12 stretch-card">
-                <div class="card">
-                    <div class="" id="myTable">
-                    @foreach($products as $product)
+
+        <div class="col-md-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Mobile & Computer Items</h4>
+                  <p class="card-description">
+                    With flexible prices
+                  </p>
+                  <div class="row">
+                      @foreach($products as $product)
+                    <div class="col-md-6">
+                        {{$product->id}}
+                        <img src="{{URL::asset('/productImages/')}}" alt="" height="100px" width="100px">
+                    </div>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="col-md-12 stretch-card">
+    <div class="card">
+        <div class="" id="myTable">
+        @foreach($products as $product)
         <div class="">
             <div class="card">
                 <div class="card-body">
@@ -47,21 +67,21 @@
             </div>
         </div>
         @endforeach
-                    </div>
                 </div>
             </div>
-          </div>
-          </div>
+        </div>
+    </div>
+</div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{date('Y')}} <a href="/" target="_blank">Sithu</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Learn Laravel With <i class="mdi mdi-heart text-danger"></i></span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
+    <footer class="footer">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{date('Y')}} <a href="/" target="_blank">Sithu</a>. All rights reserved.</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Learn Laravel With <i class="mdi mdi-heart text-danger"></i></span>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>
 
 
 
