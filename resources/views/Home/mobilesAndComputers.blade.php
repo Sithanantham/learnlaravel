@@ -5,52 +5,56 @@
         <div class="row items" id="myContent body">
 
         <div class="col-md-12 grid-margin">
-              <div class="card">
+            <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Mobile & Computer Items</h4>
-                  <p class="card-description">
+                    <h4 class="card-title">Mobile & Computer Items</h4>
+                    <p class="card-description">
                     With flexible prices
-                  </p>
-                  <div class="row">
-                      @foreach($mobileAndComputerItems as $mobileAndComputerItem)
-                    <div class="col-md-3">
-                    <blockquote class="blockquote">
-                       <p align="center"> <a href="{{URL::asset('/productImages/'.$mobileAndComputerItem->product_image)}}" target="_blank"><img src="{{URL::asset('/productImages/'.$mobileAndComputerItem->product_image)}}" alt="" height="110px" width="110px"></a></p>
+                    </p>
+                    <div class="row">
+                    @foreach($mobileAndComputerItems as $items)
+                        @foreach($items->products as $mobileAndComputerItem)
 
-                       <div class="col-md-12"><br>
-                       <ul class="list-ticked">
-                    <table id="">
-                        <tr>
-                            <td colspan="2" style="font-size:18px" align="center">{{ucfirst($mobileAndComputerItem->product_brand_name)}}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center"> {{ucfirst($mobileAndComputerItem->product_name)}}</td>
-                        </tr>
-                        <tr>
-                            <td><li>M.R.P.</li></td>
-                            <td> &nbsp; : &nbsp; {{$mobileAndComputerItem->product_price}}</td>
-                        </tr>
-                        <tr>
-                            <td><li>Price</li></td>
-                            <td> &nbsp; : &nbsp; {{$mobileAndComputerItem->product_discount_price}}</td>
-                        </tr>
-                        <tr>
-                            <td><li>Save</li></td>
-                            <td> &nbsp; : &nbsp;
-                                @php $saving_amount = $mobileAndComputerItem->product_price - $mobileAndComputerItem->product_discount_price @endphp
-                             {{$saving_amount}} <small>({{$mobileAndComputerItem->product_discount}} %)</small></td>
-                        </tr>
-                    </table>
-                    </ul>
+                        @php  //echo"<pre>"; print_r($mobileAndComputerItem); @endphp
+                        <div class="col-md-3">
+                        <blockquote class="blockquote">
+                        <p align="center"> <a href="{{URL::asset('/productImages/'.$mobileAndComputerItem->product_image)}}" target="_blank"><img src="{{URL::asset('/productImages/'.$mobileAndComputerItem->product_image)}}" alt="" height="110px" width="110px"></a></p>
+
+                        <div class="col-md-12"><br>
+                        <ul class="list-ticked">
+                        <table id="">
+                            <tr>
+                                <td colspan="2" style="font-size:18px" align="center">{{ucfirst($mobileAndComputerItem->product_brand_name)}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"> {{ucfirst($mobileAndComputerItem->product_name)}}</td>
+                            </tr>
+                            <tr>
+                                <td><li>M.R.P.</li></td>
+                                <td> &nbsp; : &nbsp; {{$mobileAndComputerItem->product_price}}</td>
+                            </tr>
+                            <tr>
+                                <td><li>Price</li></td>
+                                <td> &nbsp; : &nbsp; {{$mobileAndComputerItem->product_discount_price}}</td>
+                            </tr>
+                            <tr>
+                                <td><li>Save</li></td>
+                                <td> &nbsp; : &nbsp;
+                                    @php $saving_amount = $mobileAndComputerItem->product_price - $mobileAndComputerItem->product_discount_price @endphp
+                                {{$saving_amount}} <small>({{$mobileAndComputerItem->product_discount}} %)</small></td>
+                            </tr>
+                        </table>
+                        </ul>
+                            </div>
+                        </blockquote>
                         </div>
-                       </blockquote>
-                    </div>
+                        @endforeach
                     @endforeach
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-            </div>
+        </div>
+    </div>
 
 </div>
         <!-- content-wrapper ends -->

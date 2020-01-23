@@ -25,16 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $mobComItems = Category::with('products')->where('id', '=', '1') -> get();
         $products = Product::all();
+        //echo "<pre>"; print_r($mobComItems); die;
         //$getMobileComputerProduct = Product::with('getMobileComputerProduct')->get();
         //echo "<pre>";
         //print_r($getRelatedProduct);
        // dd($getMobileComputerProduct);
-        return view('Home.index', compact('products'));
+        return view('Home.index', compact('products', 'mobComItems'));
     }
 
     public function mobilesAndComputers(){
-        $mobileAndComputerItems = Product::where('category_id', '=', 1)->get();
+        $mobileAndComputerItems = Category::with('products')->where('id', '=', '1') -> get();
         //dd($get);
         return view('Home.mobilesAndComputers', compact('mobileAndComputerItems'));
     }

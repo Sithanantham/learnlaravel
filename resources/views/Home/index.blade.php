@@ -12,11 +12,14 @@
                     With flexible prices
                   </p>
                   <div class="row">
-                      @foreach($products as $product)
-                    <div class="col-md-6">
-                        {{$product->id}}
-                        <img src="{{URL::asset('/productImages/')}}" alt="" height="100px" width="100px">
+                      @foreach($mobComItems as $mobComItem)
+                      @foreach($mobComItem->products as $a)
+                    <div class="col-md-3">
+                        <blockquote class="blockquote">
+                            <p align="center"><a href="/mobile-Computer-items"><img src="{{URL::asset('/productImages/'.$a->product_image)}}" alt="" height="100px" width="100px"></a></p>
+                        </blockquote>
                     </div>
+                    @endforeach
                     @endforeach
                   </div>
                 </div>
@@ -37,7 +40,7 @@
                     <ul class="list-ticked">
                     <table id="">
                         <tr>
-                            <td colspan="2" style="font-size:18px">{{ucfirst($product->product_brand_name)}} {{ucfirst($product->product_name)}}</td>
+                            <td align="center" colspan="2" style="font-size:18px">{{ucfirst($product->product_brand_name)}} {{ucfirst($product->product_name)}}</td>
                         </tr>
                         <tr>
                             <td><li>M.R.P.</li></td>
