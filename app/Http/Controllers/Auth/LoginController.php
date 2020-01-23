@@ -37,11 +37,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function validator(Request $request){
+    public function loginValidator(Request $request){
         $this->validate($request,[
             'email'    => 'required|string',
             'password' => 'required|string',
-            'captcha'  => 'required|string',
+            'captcha'  => 'required|captcha',
         ]);
     }
 

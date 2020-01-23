@@ -45,7 +45,7 @@ class LoginController extends Controller
         $this->validate($request,[
             'email'    => 'required|string',
             'password' => 'required|string',
-            'captcha'  => 'required|string',
+            'captcha'  => 'required|captcha',
         ]);
         if (auth()->guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
 

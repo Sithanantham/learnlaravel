@@ -80,7 +80,7 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="text-color:black">
         <ul class="nav list-ticked">
-            <li><a href="#">Mobiles & Computers</a></li>
+            <li><a href="/mobile-Computer-items">Mobiles & Computers</a></li>
             <li><a href="#">TV & Electronics</a></li>
             <li><a href="#">Men's Fashion</a></li>
             <li><a href="#">Women's Fashion</a></li>

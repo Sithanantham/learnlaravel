@@ -11,6 +11,6 @@ class Product extends Model
     }
 
     public function getMobileComputerProduct(){
-        return $this->hasMany('App\Category', 'id', 'category_id')->where('category_id', '=', 1);
+       // return $this->hasMany('App\Category', 'id', 'category_id')->where('category_id', '=', 1);
     }
 }

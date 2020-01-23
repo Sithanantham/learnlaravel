@@ -31,7 +31,7 @@
             <div class="card">
                 <div class="card-body">
                         <div class="col-sm-4" style="float:left;">
-                            <img src="{{URL::asset('/productImages/'.$product->product_image)}}" alt="" height="110px" width="110px">
+                           <a href="{{URL::asset('/productImages/'.$product->product_image)}}" target="_blank"><img src="{{URL::asset('/productImages/'.$product->product_image)}}" alt="" height="110px" width="110px"></a>
                         </div>
                         <div class="col-sm-6" style="margin-left:32%">
                     <ul class="list-ticked">

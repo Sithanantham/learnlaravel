@@ -17,6 +17,7 @@
 
 //Home
 Route::get('/', 'HomeController@index');
+Route::get('/mobile-Computer-items', 'HomeController@mobilesAndComputers');
 
 //Bio-Data
 Route::get('/addBioData', 'BiodataController@addBioData')->name('addBioData');

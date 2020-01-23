@@ -32,4 +32,10 @@ class HomeController extends Controller
        // dd($getMobileComputerProduct);
         return view('Home.index', compact('products'));
     }
+
+    public function mobilesAndComputers(){
+        $mobileAndComputerItems = Product::where('category_id', '=', 1)->get();
+        //dd($get);
+        return view('Home.mobilesAndComputers', compact('mobileAndComputerItems'));
+    }
 }
