@@ -60,7 +60,7 @@
                     </ul>
                     @if($product->product_status == 'In Stock')
                                 <li class="badge badge-success">{{$product->product_status}}</li>
-                                <button class="btn btn-secondary btn-rounded btn-fw btn-sm">Buy Now</button>
+                                <a href="/{{$product->id}}/buy-it" target="_blank"><button class="btn btn-secondary btn-rounded btn-fw btn-sm">Buy Now</button></a>
                             @else
                                 <li class="badge badge-danger">{{$product->product_status}}</li>
                             @endif

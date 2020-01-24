@@ -40,4 +40,11 @@ class HomeController extends Controller
         //dd($get);
         return view('Home.mobilesAndComputers', compact('mobileAndComputerItems'));
     }
+
+    public function buyIt($id){
+      //  dd($id);
+        $buyit = Product::where('id', '=', $id)->get();
+        //dd($buyit);
+        return view('Home.buyIt', compact('buyit'));
+    }
 }
