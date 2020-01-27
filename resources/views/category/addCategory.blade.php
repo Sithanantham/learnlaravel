@@ -8,6 +8,9 @@
                     <div class="card-body">
                         <p class="card-title">Add Category
                         </p>
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
                         <form id="myform" class="forms-sample" method="post" action="/admin/save-category" enctype="multipart/form-data">
                                 @csrf
                             <div class="form-group row">
@@ -34,6 +37,9 @@
                     <div class="card-body">
                         <p class="card-title">Category's List
                         </p>
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
                         <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
                                     <thead>
@@ -65,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            <div style="margin-left: 74%;"  >{{$category->onEachSide(5)->links()}}</div>
           </div>
         </div>
         <!-- content-wrapper ends -->

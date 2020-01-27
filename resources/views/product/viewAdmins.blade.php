@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-
+            <div style="margin-left: 74%;"  >{{$admins->onEachSide(5)->links()}}</div>
                     </div>
                 </div>
             </div>

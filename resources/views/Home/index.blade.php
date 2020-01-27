@@ -70,7 +70,9 @@
             </div>
         </div>
         @endforeach
-                </div>
+                </div><br>
+                <div style="margin-left: 74%;"  >{{$products->onEachSide(5)->links()}}</div>
+
             </div>
         </div>
     </div>

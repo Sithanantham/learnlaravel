@@ -36,7 +36,7 @@
                         </tr>
                     </table>
                     </ul>
-                                <a href="/{{$buyit->id}}/buy-it" target="_blank"><button class="btn btn-secondary btn-rounded btn-fw btn-sm">Buy Now</button></a>
+                                <a href="/{{$buyit->id}}/payment"><button class="btn btn-secondary btn-rounded btn-fw btn-sm">Buy Now</button></a>
                                 <a href="#"><button class="btn btn-warning btn-rounded btn-fw btn-sm">Add to Cart</button></a>
                     </div>
                 </div>

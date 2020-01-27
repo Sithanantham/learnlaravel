@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $mobComItems = Category::with('products')->where('id', '=', '1') -> get();
-        $products = Product::all();
+        $products = Product::paginate(5)->onEachSide(3);
         //echo "<pre>"; print_r($mobComItems); die;
         //$getMobileComputerProduct = Product::with('getMobileComputerProduct')->get();
         //echo "<pre>";
@@ -46,5 +46,9 @@ class HomeController extends Controller
         $buyit = Product::where('id', '=', $id)->get();
         //dd($buyit);
         return view('Home.buyIt', compact('buyit'));
+    }
+
+    public function payment($id){
+        return "paypal payment integration";
     }
 }

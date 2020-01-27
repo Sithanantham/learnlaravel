@@ -57,7 +57,7 @@
                             <div class="form-group row">
                                 <label for="product_image" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-5">
-                                    <input type="file" name="product_image" class="form-control" id="product_image" placeholder="Product Image" value="{{URL::asset('/productImages/'.$edit_products->product_image)}}">
+                                    <input type="file" name="product_image" class="form-control" id="product_image" accept="image/*" placeholder="Product Image" value="{{URL::asset('/productImages/'.$edit_products->product_image)}}">
                                 </div>
                                 <div class="col-sm-5">
                                     <img src="{{URL::asset('/productImages/'.$edit_products->product_image)}}" alt="" height="80px" width="80px">

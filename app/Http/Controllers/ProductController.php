@@ -34,9 +34,9 @@ class ProductController extends Controller
         $save_product->product_discount_price = $request->product_discount_price;
         $save_product->product_status = $request->product_status;
 
-        if($file = $request->hasFile('product_image')){
+        if($request->hasFile('product_image')){
             $file = $request->file('product_image');
-            $fileName = time()."-" .$file->getClientOriginalName();
+            $fileName = time()."-" .$file->getClientOriginalExtension();
             $path = public_path().'/productImages/';
             $file->move($path,$fileName);
             $save_product->product_image = $fileName;
@@ -46,7 +46,7 @@ class ProductController extends Controller
     }
 
     public function viewProduct(){
-        $products = Product::with('category_name')->orderBy('created_at','DESC')->get();
+        $products = Product::with('category_name')->orderBy('created_at','DESC')->paginate(5)->onEachSide(3);
         return view('product.viewProduct', compact('products'));
     }
 
@@ -68,9 +68,9 @@ class ProductController extends Controller
         $updateProduct->product_discount_price = $request->product_discount_price;
         $updateProduct->product_status = $request->product_status;
 
-        if($file = $request->hasFile('product_image')){
+        if($request->hasFile('product_image')){
             $file = $request->file('product_image');
-            $fileName = time()."-" .$file->getClientOriginalName();
+            $fileName = time()."-" .$file->getClientOriginalExtension();
             $path = public_path().'/productImages/';
             $file->move($path,$fileName);
             $updateProduct->product_image = $fileName;
@@ -88,7 +88,7 @@ class ProductController extends Controller
     }
 
     public function addCategory(){
-        $category = Category::all();
+        $category = Category::paginate(5)->onEachSide(3);
         return view('category.addCategory', compact('category'));
     }
 
@@ -113,7 +113,7 @@ class ProductController extends Controller
      }
 
     public function viewAdmins(){
-        $admins = User::orderBy('created_at','DESC')->get();
+        $admins = User::orderBy('created_at','DESC')->paginate(5)->onEachSide(3);
         return view('product.viewAdmins', compact('admins'));
     }
 

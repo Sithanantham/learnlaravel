@@ -19,6 +19,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/mobile-Computer-items', 'HomeController@mobilesAndComputers');
 Route::get('{id}/buy-it', 'HomeController@buyIt');
+Route::get('{id}/payment', 'HomeController@payment');
 
 //Bio-Data
 Route::get('/addBioData', 'BiodataController@addBioData')->name('addBioData');
