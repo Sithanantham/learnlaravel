@@ -49,6 +49,9 @@ class HomeController extends Controller
     }
 
     public function payment($id){
-        return "paypal payment integration";
+        $amount = Product::where('id', '=', $id)->get();
+        //echo "<pre>"; print_r($amount); die;
+        return view('Home.payment', compact('amount'));
+        //return "paypal payment integration";
     }
 }
