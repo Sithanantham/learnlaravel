@@ -21,6 +21,9 @@ Route::get('/mobile-Computer-items', 'HomeController@mobilesAndComputers');
 Route::get('{id}/buy-it', 'HomeController@buyIt');
 Route::get('{id}/payment', 'HomeController@payment');
 
+//Video Audio Image Upload
+Route::get('/videoAudioImageUpload', 'HomeController@videoAudioImageUpload');
+
 //Bio-Data
 Route::get('/addBioData', 'BiodataController@addBioData')->name('addBioData');
 Route::post('/saveBioData', 'BiodataController@saveBioData')->name('saveBioData');

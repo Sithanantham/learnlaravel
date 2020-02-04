@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Category;
 use App\User;
+use Illuminate\Support\Facades\Input;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,7 @@ class ProductController extends Controller
     }
 
     public function saveProduct(Request $request){
+        //dd($request->file('product_audio'));
         $save_product = new Product;
         $save_product->product_name = $request->product_name;
         $save_product->category_id = $request->category_id;
@@ -36,11 +38,28 @@ class ProductController extends Controller
 
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
-            $fileName = time()."-" .$file->getClientOriginalExtension();
+            $fileName = time()."-" .$file->getClientOriginalName();
             $path = public_path().'/productImages/';
             $file->move($path,$fileName);
             $save_product->product_image = $fileName;
         }
+
+        if($request->hasFile('product_video')){
+            $file = $request->file('product_video');
+            $fileName = time()."-" .$file->getClientOriginalName();
+            $path = public_path().'/productVideos/';
+            $file->move($path,$fileName);
+            $save_product->product_video = $fileName;
+        }
+
+        if($request->hasFile('product_audio')){
+            $file = $request->file('product_audio');
+            $fileName = time()."-" .$file->getClientOriginalName();
+            $path = public_path().'/productAudios/';
+            $file->move($path,$fileName);
+            $save_product->product_audio = $fileName;
+        }
+         //dd($save_product);
         $save_product->save();
         return back()->with('success', 'Product Added Successfully');
     }
@@ -70,11 +89,12 @@ class ProductController extends Controller
 
         if($request->hasFile('product_image')){
             $file = $request->file('product_image');
-            $fileName = time()."-" .$file->getClientOriginalExtension();
+            $fileName = time()."-" .$file->getClientOriginalName();
             $path = public_path().'/productImages/';
             $file->move($path,$fileName);
             $updateProduct->product_image = $fileName;
         }
+
        // dd($updateProduct);
         $updateProduct->save();
         return back()->with('success', 'Product Updated Successfully');

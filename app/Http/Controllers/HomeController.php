@@ -41,6 +41,12 @@ class HomeController extends Controller
         return view('Home.mobilesAndComputers', compact('mobileAndComputerItems'));
     }
 
+    public function videoAudioImageUpload(){
+        $videoAudioImageUpload = Product::where('category_id', '=', '18')->get();
+        //dd($videoAudioImageUpload);
+        return view ('Home.videoAudioImageUpload', compact('videoAudioImageUpload'));
+    }
+
     public function buyIt($id){
       //  dd($id);
         $buyit = Product::where('id', '=', $id)->get();

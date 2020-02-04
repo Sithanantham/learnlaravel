@@ -94,6 +94,7 @@
             <li><a href="#">Gift Cards & Mobile Recharges</a></li>
             <li><a href="#">Fliht tickets</a></li>
             <li><a href="#">Full Story Books</a></li>
+            <li><a href="/videoAudioImageUpload">Echo Dot Smart Speaker (Video, Audio, Image upload)</a></li>
             <li><a href="#">Your Account</a></li>
             <li><a href="#">Customer Service</a></li>
            <!--  <li> <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

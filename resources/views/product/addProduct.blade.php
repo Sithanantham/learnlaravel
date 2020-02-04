@@ -41,7 +41,7 @@
                                 </div>
                                 <label for="product_discount" class="col-sm-1 col-form-label">Discount (%)</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="product_discount" class="form-control percentage" id="product_discount" placeholder="Product Discount in %" value="0" maxlength="2" required>
+                                    <input type="number" name="product_discount" class="form-control percentage" id="product_discount" placeholder="Product Discount in %" value="0" maxlength="2" required>
                                 </div>
                                 <div class="col-sm-3">
                                     <input type="number" name="product_discount_price" class="form-control percentage" id="product_discount_price" placeholder="Product Discount Price" readonly>
@@ -52,6 +52,20 @@
                                 <label for="product_image" class="col-sm-2 col-form-label">Image</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="product_image" class="form-control" id="product_image" placeholder="Product Image" accept="image/*" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="product_video" class="col-sm-2 col-form-label">Video</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="product_video" class="form-control" id="product_video" placeholder="Product video">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="product_audio" class="col-sm-2 col-form-label">Audio</label>
+                                <div class="col-sm-10">
+                                    <input type="file" name="product_audio" class="form-control" id="product_audio" placeholder="Product audio" accept="audio/*">
                                 </div>
                             </div>
 
