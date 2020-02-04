@@ -65,6 +65,29 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="product_video" class="col-sm-2 col-form-label">Video</label>
+                                <div class="col-sm-5">
+                                    <input type="file" name="product_video" class="form-control" id="product_video" accept="video/*" placeholder="Product Video" value="{{URL::asset('/productVideos/'.$edit_products->product_video)}}">
+                                </div>
+                                <div class="col-sm-5">
+                                    <img src="{{URL::asset('/productvideos/'.$edit_products->product_video)}}" alt="" height="80px" width="80px">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="product_audio" class="col-sm-2 col-form-label">Audio</label>
+                                <div class="col-sm-5">
+                                    <input type="file" name="product_audio" class="form-control" id="product_audio" accept="audio/*" placeholder="Product Audio" value="{{URL::asset('/productAudios/'.$edit_products->product_audio)}}">
+                                </div>
+                                <div class="col-sm-5">
+                                <audio controls>
+                                    <source src="{{URL::asset('/productAudios/'.$edit_products->product_audio)}}" type="audio/mp4">
+                                Your browser does not support the audio element.
+                                </audio>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="product_status" class="col-sm-2 col-form-label">Status</label>
                                 <div class="col-sm-10">
                                     <input type="radio" name="product_status" id="product_status" value="In Stock" {{($edit_products->product_status == 'In Stock')? "checked" : ""}} > In Stock &nbsp;

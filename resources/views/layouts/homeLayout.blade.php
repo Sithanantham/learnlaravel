@@ -97,6 +97,13 @@
             <li><a href="/videoAudioImageUpload">Echo Dot Smart Speaker (Video, Audio, Image upload)</a></li>
             <li><a href="#">Your Account</a></li>
             <li><a href="#">Customer Service</a></li>
+            <li><a class="nav-link" data-toggle="collapse" href="{{ route('logout') }}" aria-expanded="false" aria-controls="ui-basic" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="mdi mdi-lock menu-icon" aria-hidden="true"></i> <span class="menu-title">Logout</span>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </a></li>
            <!--  <li> <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="mdi mdi-lock menu-icon" aria-hidden="true"></i> <span class="menu-title">Logout</span></a>
 

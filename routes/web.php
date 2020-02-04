@@ -33,6 +33,8 @@ Route::post('/updateBioData/{id}', 'BiodataController@updateBioData')->name('upd
 Route::get('/deleteBioData/{id}', 'BiodataController@deleteBioData')->name('deleteBioData');
 
 
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function(){
+
 //Product
 Route::get('/admin', 'ProductController@product');
 Route::get('/admin/product', 'ProductController@product');
@@ -56,20 +58,22 @@ Route::delete('/admin/{id}/delete-category', 'ProductController@deleteCategory')
 Route::get('/admin/add-admin', 'ProductController@addAdmin');
 Route::get('/admin/view-admins', 'ProductController@viewAdmins');
 
+});
+
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/admin/product', 'ProductController@product');
+//Route::get('/admin/product', 'ProductController@product');
 
-Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+/* Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Admin\LoginController@login');
 Route::get('/admin/register', 'Admin\RegisterController@showRegisterForm')->name('showadmin.register');
 Route::post('/save-admin/register', 'Admin\RegisterController@createRegister')->name('admin.register');
-Route::post('/admin-password/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-Route::post('/admin-password/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-
+Route::post('/admin-pasordsword/email', 'Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+Route::post('/admin-passw/reset', 'Admin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+ */
 
 //refresh captcha
 Route::get('/refreshcaptcha', 'Auth\LoginController@refreshCaptcha');

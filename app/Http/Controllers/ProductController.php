@@ -8,11 +8,13 @@ use App\Product;
 use App\Category;
 use App\User;
 use Illuminate\Support\Facades\Input;
+use App\Http\Middleware\AdminMiddleware;
 
 class ProductController extends Controller
 {
     public function __construct(){
         $this->middleware('auth');
+        //$this->middleware(AdminMiddleware::class);
     }
 
     public function product(){
@@ -93,6 +95,22 @@ class ProductController extends Controller
             $path = public_path().'/productImages/';
             $file->move($path,$fileName);
             $updateProduct->product_image = $fileName;
+        }
+
+        if($request->hasFile('product_video')){
+            $file = $request->file('product_video');
+            $fileName = time()."-" .$file->getClientOriginalName();
+            $path = public_path().'/productVideos/';
+            $file->move($path,$fileName);
+            $updateProduct->product_video = $fileName;
+        }
+
+        if($request->hasFile('product_audio')){
+            $file = $request->file('product_audio');
+            $fileName = time()."-" .$file->getClientOriginalName();
+            $path = public_path().'/productAudios/';
+            $file->move($path,$fileName);
+            $updateProduct->product_audio = $fileName;
         }
 
        // dd($updateProduct);
