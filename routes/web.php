@@ -34,7 +34,6 @@ Route::get('/deleteBioData/{id}', 'BiodataController@deleteBioData')->name('dele
 
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function(){
-
 //Product
 Route::get('/admin', 'ProductController@product');
 Route::get('/admin/product', 'ProductController@product');
@@ -44,7 +43,8 @@ Route::get('/admin/view-product', 'ProductController@viewProduct');
 Route::get('/admin/{id}/edit-product', 'ProductController@editProduct');
 Route::post('/admin/{id}/update-product', 'ProductController@updateProduct');
 Route::delete('/admin/{id}/delete-product', 'ProductController@deleteProduct');
-
+//In project, Export data as Excel
+Route::get('/admin/view-product/exportExcel/', 'ProductController@exportExcel')->name('exportExcel');
 
 //Category
 Route::get('/admin/add-category', 'ProductController@addCategory');
@@ -53,10 +53,8 @@ Route::get('/admin/{id}/edit-category', 'ProductController@editCategory');
 Route::post('/admin/{id}/update-category', 'ProductController@updateCategory');
 Route::delete('/admin/{id}/delete-category', 'ProductController@deleteCategory');
 
-
 //Customer
 Route::get('/admin/customers', 'ProductController@customers');
-
 
 //Admin
 Route::get('/admin/add-admin', 'ProductController@addAdmin');

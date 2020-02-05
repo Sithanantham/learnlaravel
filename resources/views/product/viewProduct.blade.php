@@ -7,7 +7,8 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-title">Products List
-                        <a href="/admin/add-product" class="float-right">Add Product</a>
+                        <a href="/admin/add-product" class="float-right">Add Product</a><br><br>
+                        <a href="{{route('exportExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
                         </p>
 
                         <div class="col-lg-12 grid-margin stretch-card">

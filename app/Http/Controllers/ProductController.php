@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use App\Http\Middleware\AdminMiddleware;
+use App\Exports\ProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Product;
 use App\Category;
 use App\User;
-use Illuminate\Support\Facades\Input;
-use App\Http\Middleware\AdminMiddleware;
 
 class ProductController extends Controller
 {
@@ -123,6 +125,35 @@ class ProductController extends Controller
         //dd($deleteProduct);
         $deleteProduct->delete();
         return back()->with('success', 'Product Deleted Successfully');
+    }
+
+    public function exportExcel(){
+
+        return Excel::download(new ProductsExport, 'products.xlsx');
+        /* $products = Product::get()->toArray();
+        //dd($products);
+        $product_array[] = array('product_name', 'product_brand_name', 'product_price');
+        //dd($product_array);
+        foreach($products as $product){
+            $product_array[] = array(
+                'product_name' => $product['product_name'],
+                'product_brand_name' => $product['product_brand_name'],
+                'product_price' => $product['product_price'],
+            );
+            return \Excel::create('ProductData', function($excel) use($product_array){
+                $excel->setTitle('Product Data');
+                $excel->sheet('Product Data', function($sheet) use($product_array){
+                    $sheet->fromArray($product_array, null, 'A1', false, false);
+                });
+            })->export('xls');
+        } */
+
+       /*  return \Excel::create('Products', function($excel) use ($products){
+            $excel->sheet('Products', function($sheet) use($products){
+                $sheet->fromArray($products);
+            })->download('xlsx');
+        }); */
+
     }
 
     public function addCategory(){
