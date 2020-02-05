@@ -115,7 +115,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" data-toggle="collapse" href="customers" aria-expanded="false" aria-controls="ui-basic">
               <i class="mdi mdi-account-multiple menu-icon"></i>
                 <span class="menu-title">Customers List</span>
             </a>
@@ -206,6 +206,7 @@ $(document).ready(function(){
     });
   });
 });
+
 </script>
 </body>
 

@@ -150,6 +150,12 @@ class ProductController extends Controller
         // return view('category.addCategory');
      }
 
+    public function customers(){
+        $customers = User::where('role', '!=', 'Admin')->orWhereNUll('role')->paginate(5)->onEachSide(3);
+        //echo "<pre>"; print_r($customers);die;
+        return view('product.customersList', compact('customers'));
+    }
+
     public function viewAdmins(){
         $admins = User::orderBy('created_at','DESC')->paginate(5)->onEachSide(3);
         return view('product.viewAdmins', compact('admins'));

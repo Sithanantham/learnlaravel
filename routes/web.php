@@ -54,6 +54,10 @@ Route::post('/admin/{id}/update-category', 'ProductController@updateCategory');
 Route::delete('/admin/{id}/delete-category', 'ProductController@deleteCategory');
 
 
+//Customer
+Route::get('/admin/customers', 'ProductController@customers');
+
+
 //Admin
 Route::get('/admin/add-admin', 'ProductController@addAdmin');
 Route::get('/admin/view-admins', 'ProductController@viewAdmins');
