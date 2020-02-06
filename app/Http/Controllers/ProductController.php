@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Product;
 use App\Category;
 use App\User;
+use PDF;
 
 class ProductController extends Controller
 {
@@ -128,32 +129,20 @@ class ProductController extends Controller
     }
 
     public function exportExcel(){
-
         return Excel::download(new ProductsExport, 'products.xlsx');
-        /* $products = Product::get()->toArray();
+    }
+
+    public function exportPDF(){
+        $products = Product::all();
         //dd($products);
-        $product_array[] = array('product_name', 'product_brand_name', 'product_price');
-        //dd($product_array);
-        foreach($products as $product){
-            $product_array[] = array(
-                'product_name' => $product['product_name'],
-                'product_brand_name' => $product['product_brand_name'],
-                'product_price' => $product['product_price'],
-            );
-            return \Excel::create('ProductData', function($excel) use($product_array){
-                $excel->setTitle('Product Data');
-                $excel->sheet('Product Data', function($sheet) use($product_array){
-                    $sheet->fromArray($product_array, null, 'A1', false, false);
-                });
-            })->export('xls');
-        } */
+      // return view('product.downloadproductPDF', compact('products'));
+       // $pdf = \PDF::loadView('product.downloadproductPDF', compact('products'));
+        $pdf = PDF::loadHTML('Hi sithu');
+        return $pdf->stream('products.pdf');
+    }
 
-       /*  return \Excel::create('Products', function($excel) use ($products){
-            $excel->sheet('Products', function($sheet) use($products){
-                $sheet->fromArray($products);
-            })->download('xlsx');
-        }); */
-
+    public function exportCSV(){
+        return Excel::download(new ProductsExport, 'products.csv');
     }
 
     public function addCategory(){

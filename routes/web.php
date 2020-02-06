@@ -43,8 +43,10 @@ Route::get('/admin/view-product', 'ProductController@viewProduct');
 Route::get('/admin/{id}/edit-product', 'ProductController@editProduct');
 Route::post('/admin/{id}/update-product', 'ProductController@updateProduct');
 Route::delete('/admin/{id}/delete-product', 'ProductController@deleteProduct');
-//In project, Export data as Excel
+//In project, Export data as Excel, PDF
 Route::get('/admin/view-product/exportExcel/', 'ProductController@exportExcel')->name('exportExcel');
+Route::get('/admin/view-product/exportCSV/', 'ProductController@exportCSV')->name('exportCSV');
+Route::get('/admin/view-product/exportPDF/', 'ProductController@exportPDF')->name('exportPDF');
 
 //Category
 Route::get('/admin/add-category', 'ProductController@addCategory');
