@@ -9,6 +9,8 @@
                         <p class="card-title">Products List
                         <a href="/admin/add-product" class="float-right">Add Product</a><br><br>
                         <a href="{{route('exportExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
+                        <a href="#" target="_blank"><button class="btn btn-primary">Export Data as CSV</button></a>
+                        <a href="#" target="_blank"><button class="btn btn-danger">Export Data as PDF</button></a>
                         </p>
 
                         <div class="col-lg-12 grid-margin stretch-card">
