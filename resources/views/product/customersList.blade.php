@@ -6,7 +6,10 @@
             <div class="col-md-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">customers List
+                        <p class="card-title">customers List<br><br>
+                            <a href="{{route('exportcustomerASExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
+                            <a href="{{route('exportcustomerAsCSV')}}" target="_blank"><button class="btn btn-primary">Export Data as CSV</button></a>
+                            <a href="{{route('exportcustomerAsPDF')}}" target="_blank"><button class="btn btn-danger">Export Data as PDF</button></a>
                         </p>
 
                         <div class="col-lg-12 grid-margin stretch-card">

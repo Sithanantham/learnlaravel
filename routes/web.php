@@ -43,7 +43,7 @@ Route::get('/admin/view-product', 'ProductController@viewProduct');
 Route::get('/admin/{id}/edit-product', 'ProductController@editProduct');
 Route::post('/admin/{id}/update-product', 'ProductController@updateProduct');
 Route::delete('/admin/{id}/delete-product', 'ProductController@deleteProduct');
-//In project, Export data as Excel, PDF
+//In project, Export data as Excel, CSV and PDF
 Route::get('/admin/view-product/exportExcel/', 'ProductController@exportExcel')->name('exportExcel');
 Route::get('/admin/view-product/exportCSV/', 'ProductController@exportCSV')->name('exportCSV');
 Route::get('/admin/view-product/exportPDF/', 'ProductController@exportPDF')->name('exportPDF');
@@ -54,13 +54,25 @@ Route::post('/admin/save-category', 'ProductController@saveCategory');
 Route::get('/admin/{id}/edit-category', 'ProductController@editCategory');
 Route::post('/admin/{id}/update-category', 'ProductController@updateCategory');
 Route::delete('/admin/{id}/delete-category', 'ProductController@deleteCategory');
+//In Category, Export data as Excel, CSV and PDF
+Route::get('/admin/add-category/exportCategoryASExcel', 'ProductController@exportCategoryASExcel')->name('exportCategoryASExcel');
+Route::get('/admin/add-category/exportCategoryAsCSV', 'ProductController@exportCategoryAsCSV')->name('exportCategoryAsCSV');
+Route::get('/admin/add-category/exportCategoryAsPDF', 'ProductController@exportCategoryAsPDF')->name('exportCategoryAsPDF');
 
 //Customer
 Route::get('/admin/customers', 'ProductController@customers');
+//In Customer, Export data as Excel, CSV and PDF
+Route::get('/admin/customers/exportcustomerASExcel', 'ProductController@exportcustomerASExcel')->name('exportcustomerASExcel');
+Route::get('/admin/customers/exportcustomerAsCSV', 'ProductController@exportcustomerAsCSV')->name('exportcustomerAsCSV');
+Route::get('/admin/customers/exportcustomerAsPDF', 'ProductController@exportcustomerAsPDF')->name('exportcustomerAsPDF');
 
 //Admin
 Route::get('/admin/add-admin', 'ProductController@addAdmin');
 Route::get('/admin/view-admins', 'ProductController@viewAdmins');
+//In Admin, Export data as Excel, CSV and PDF
+Route::get('/admin/view-admins/exportAdminASExcel', 'ProductController@exportAdminASExcel')->name('exportAdminASExcel');
+Route::get('/admin/view-admins/exportAdminAsCSV', 'ProductController@exportAdminAsCSV')->name('exportAdminAsCSV');
+Route::get('/admin/view-admins/exportAdminAsPDF', 'ProductController@exportAdminAsPDF')->name('exportAdminAsPDF');
 
 });
 

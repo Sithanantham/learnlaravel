@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Http\Middleware\AdminMiddleware;
 use App\Exports\ProductsExport;
+use App\Exports\CategorysExport;
+use App\Exports\CustomersExport;
+use App\Exports\AdminsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Product;
 use App\Category;
@@ -137,8 +140,8 @@ class ProductController extends Controller
         //dd($products);
       // return view('product.downloadproductPDF', compact('products'));
        // $pdf = \PDF::loadView('product.downloadproductPDF', compact('products'));
-        $pdf = PDF::loadHTML('Hi sithu');
-        return $pdf->stream('products.pdf');
+        $pdf = PDF::loadHTML('Hi Sithu');
+        return $pdf->stream('Products.pdf');
     }
 
     public function exportCSV(){
@@ -170,15 +173,57 @@ class ProductController extends Controller
         // return view('category.addCategory');
      }
 
+    public function exportCategoryASExcel(){
+        return Excel::download(new CategorysExport, 'category.xlsx');
+    }
+
+    public function exportCategoryAsCSV(){
+        return Excel::download(new CategorysExport, 'category.csv');
+    }
+
+    public function exportCategoryAsPDF(){
+        $category = Category::all();
+        $pdf = PDF::loadHTML('Hi Sithu');
+        return $pdf->stream('Categoty.pdf');
+    }
+
     public function customers(){
         $customers = User::where('role', '!=', 'Admin')->orWhereNUll('role')->paginate(5)->onEachSide(3);
         //echo "<pre>"; print_r($customers);die;
         return view('product.customersList', compact('customers'));
     }
 
+    public function exportcustomerASExcel(){
+        return Excel::download(new CustomersExport, 'customers.xlsx');
+    }
+
+    public function exportcustomerAsCSV(){
+        return Excel::download(new CustomersExport, 'customers.csv');
+    }
+
+    public function exportcustomerAsPDF(){
+        $customers = User::all();
+        $pdf = PDF::loadHtml('Hi Sithu');
+        return $pdf->stream('customers.pdf');
+    }
+
     public function viewAdmins(){
-        $admins = User::orderBy('created_at','DESC')->paginate(5)->onEachSide(3);
+        $admins = User::where('role', '=', 'Admin')->orderBy('created_at','DESC')->paginate(5)->onEachSide(3);
         return view('product.viewAdmins', compact('admins'));
+    }
+
+    public function exportAdminASExcel(){
+        return Excel::download(new AdminsExport, 'Admins.Xlsx');
+    }
+
+    public function exportAdminAsCSV(){
+        return Excel::download(new AdminsExport, 'Admins.csv');
+    }
+
+    public function exportAdminAsPDF(){
+        $admins = User::all();
+        $pdf = PDF::loadHtml('Hi Sithu');
+        return $pdf->stream('Admins.pdf');
     }
 
     public function addAdmin(){

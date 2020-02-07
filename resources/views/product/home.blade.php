@@ -6,7 +6,11 @@
             <div class="col-md-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Recent Purchases</p>
+                  <p class="card-title">Recent Purchases <br><br>
+                        <a href="{{route('exportExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
+                        <a href="{{route('exportCSV')}}" target="_blank"><button class="btn btn-primary">Export Data as CSV</button></a>
+                        <a href="{{route('exportPDF')}}" target="_blank"><button class="btn btn-danger">Export Data as PDF</button></a>
+                    </p>
                   <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
                                     <thead>

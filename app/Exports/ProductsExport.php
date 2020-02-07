@@ -13,24 +13,17 @@ class ProductsExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Product::all();
+        return Product::all('product_name', 'product_brand_name', 'product_price', 'product_discount', 'product_discount_price', 'product_status');
     }
 
     public function headings(): array{
         return[
-            '#',
             'Product Name',
             'Brand Name',
             'Price',
             'Discount %',
-            'Discount Price',
-            'Product Image',
+            'Discounted Price',
             'Product Status',
-            'Created At',
-            'Updated At',
-            'Category Id',
-            'Product Video',
-            'Product Audio',
         ];
     }
 }

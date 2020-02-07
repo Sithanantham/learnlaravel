@@ -35,7 +35,11 @@
             <div class="col-md-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-title">Category's List
+                        <p class="card-title">Category's List <br><br>
+                        <a href="{{route('exportCategoryASExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
+                        <a href="{{route('exportCategoryAsCSV')}}" target="_blank"><button class="btn btn-primary">Export Data as CSV</button></a>
+                        <a href="{{route('exportCategoryAsPDF')}}" target="_blank"><button class="btn btn-danger">Export Data as PDF</button></a>
+
                         </p>
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">

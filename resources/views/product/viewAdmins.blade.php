@@ -8,6 +8,10 @@
                     <div class="card-body">
                         <p class="card-title">Admins List
                         <a href="/admin/add-admin" class="float-right">Add Admin</a>
+                        <br><br>
+                            <a href="{{route('exportAdminASExcel')}}" target="_blank"><button class="btn btn-success">Export Data as Excel</button></a>
+                            <a href="{{route('exportAdminAsCSV')}}" target="_blank"><button class="btn btn-primary">Export Data as CSV</button></a>
+                            <a href="{{route('exportAdminAsPDF')}}" target="_blank"><button class="btn btn-danger">Export Data as PDF</button></a>
                         </p>
 
                         <div class="col-lg-12 grid-margin stretch-card">
